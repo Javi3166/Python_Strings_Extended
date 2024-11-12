@@ -1,4 +1,5 @@
 #Strings: ordered, immutable, text representation
+from timeit import default_timer as timer
 
 print("String can be initialized with either double(\") or single quotes(')")
 my_string = "Hello world!"
@@ -86,3 +87,48 @@ print(my_string.endswith('!'))
 print(my_string.endswith('World!'))
 print(my_string.endswith('Hello'))
 
+print("\nIt is possible to get the index of the first iteration of something in a string. It will return a -1 if it doesn't find "
+      "anything.")
+print(my_string.find("o"))
+print(my_string.find('ello'))
+print(my_string.find('p'))
+
+print("\nIt is possible to count how many times a certain character appears in a string using .count().")
+print(my_string.count('l'))
+
+print("\nYou can use .replace() to generate a new string replacing certain characters with new ones. It is case-sensitive.")
+new_string = my_string.replace('world', 'Universe')
+print(new_string)
+
+print("\nIt is possible to generate a list using a string and have every element be an individual word using .split(). "
+      "\nThe default delimiter is a space, so it might be necessary to specify a specific delimiter depending on the case.")
+my_string = "How are you doing?"
+my_list = my_string.split()
+print(my_list)
+comma_string = "How,are,you,doing?"
+my_list = comma_string.split()
+print(my_list)
+my_list = comma_string.split(',')
+print(my_list)
+
+print("\nIt is possible to convert a list into a string using "".(). Whatever is put in the quotes will be what's put in"
+      " between every element in the list.")
+new_string = ''.join(my_list)
+print(new_string)
+new_string = ' '.join(my_list)
+print(new_string)
+
+print("\nSome might use a for loop to add elements of a list into a string, but that will take much longer time than "
+      "using the .join function.")
+my_list = ['a'] * 1000000
+#Bad Python code
+start = timer()
+for index in my_list:
+    my_string += index
+stop = timer()
+print(stop - start)
+#Good Python code
+start = timer()
+my_string = "".join(my_list)
+stop = timer()
+print(stop - start)
