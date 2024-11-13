@@ -132,3 +132,42 @@ start = timer()
 my_string = "".join(my_list)
 stop = timer()
 print(stop - start)
+
+#There are a few ways to format a string. %, .format(), f-Strings
+print("\nThere are a few different ways to format a string using either the percent(%) sign, using the .format() function, "
+      "or using f-Strings.")
+print("\nFor percent sign usage, the proper symbol after the percent sign must match the type of variable being placed. "
+      "s for strings, d for decimals/integers, and f for float numbers. \nIt is possible to modify further by adding a "
+      "decimal in between the percent sign and symbol to indicate how many spaces to print.")
+var = "Tom"
+percent_string = "The variable is %s" % var
+print(percent_string)
+
+var = 3
+percent_string = "The variable is %d" % var
+print(percent_string)
+
+var = 3.123456789
+percent_string = "The variable is %f" % var
+print(percent_string)
+
+percent_string = "The variable is %.2f" % var
+print(percent_string)
+
+print("\nUsing the .format() function involves placing curly brackets({}) in the string where the variable will be and then putting"
+      " which variables in the parentheses of the function. \nMultiple variables can be placed at once, as well as,"
+      " be modified by placing modifiers in the curly brackets.")
+format_string = "The variable is {}".format(var)
+print(format_string)
+
+format_string = "The variable is {:.2f}".format(var)
+print(format_string)
+
+var2 = 6
+format_string = "The variable is {:.3f} and {}".format(var, var2)
+print(format_string)
+
+print("\nF-Strings involve putting f before the quotes("") and putting curly brackets({}) with the desired variables inside. "
+      "where it is desired. \nIt is also possible to modify the results within the curly brackets.")
+f_string = f"The variables are {var*2} and {var2}"
+print(f_string)
